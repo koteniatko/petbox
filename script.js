@@ -4,6 +4,12 @@ const addBtn = document.getElementById("addBtn");
 const tasksCnt = document.getElementById("tasksCnt");
 const taskList = document.getElementById("taskList");
 
+
+const updateTasksCount = () => {
+  const tasks = taskList.querySelectorAll("li");
+  document.getElementById('tasksCnt').innerText = `${tasks.length}`
+}
+
 // Function to delete a task
 const deleteHandler = (event) => {
   const tasks = taskList.querySelectorAll("li");
@@ -17,9 +23,7 @@ const deleteHandler = (event) => {
       break;
     }
   }
-  const ntasks = taskList.querySelectorAll("li");
-  const statusText = document.getElementById('tasksCnt');
-    statusText.innerHTML = 'Count tasks: ' + `${ntasks.length}`
+  updateTasksCount();
 }
 
 // Adding event listeners to the buttons
@@ -50,9 +54,6 @@ function addTask(event) {
   // Clear the input field
   taskInput.value = "";
 
-  // Function to view the number of tasks
-const tasks = taskList.querySelectorAll("li");
-const statusText = document.getElementById('tasksCnt');
- statusText.innerHTML = 'Count tasks: ' + `${tasks.length}`
+  updateTasksCount();
 
 }
